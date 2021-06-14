@@ -17,7 +17,11 @@ jobs:
           path: public/
   test:
 
-    runs-on: ubuntu-latest
+    - uses: actions/download-artifact@main
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
 
     strategy:
       matrix:
